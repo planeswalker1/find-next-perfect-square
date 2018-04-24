@@ -1,0 +1,10 @@
+body {
+  color: #222;
+  font-family: monospace;
+  line-height: 1.5;
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+}

@@ -1,0 +1,2 @@
+baseurl: '/find-next-perfect-square'
+exclude: ['README.md', '.gitignore']
