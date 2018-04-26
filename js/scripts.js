@@ -19,29 +19,37 @@ function findNextSquare(sq) {
   }
 }
 
+// change textContent of span to solution
+function addSolution (input) {
+  const span = document.querySelector('.solution__span');
+  // console.log(span);
+  span.textContent = input;
+}
+
 // form selector
 const form = document.querySelector('form');
 
 // form event listener
 form.addEventListener('submit', function(event) {
-  // prevent default form submission
+  // prevent default form submission action
   event.preventDefault();
   // input selector
   const input = document.querySelector('#perfect-square');
+  // console.log(input);
   // input value
   const inputValue = Number(input.value);
-  console.log(typeof inputValue);
-  // next perfect square
+  // console.log(typeof inputValue);
+  // console.log(inputValue);
+  // check next perfect square
   const nextPerfectSquare = findNextSquare(inputValue);
-  console.log(nextPerfectSquare)
-
-  // check if input is a perfect square
-  if (nextPerfectSquare === -1) {
-    alert('NOT A PERFECT SQUARE');
+  // console.log(nextPerfectSquare);
+  // check if input is empty
+  if (input.value.length === 0) {
+    addSolution('Please enter a perfect square!');
+    // check if input is a perfect square
+  } else if (nextPerfectSquare === -1) {
+    addSolution('Not a perfect Square! Try again.');
   } else {
-    alert('THE NEXT PERFECT SQUARE IS ' + nextPerfectSquare);
+    addSolution('The next perfect square is ' + nextPerfectSquare + '.');
   }
-
-  // empty input
-  input.value = '';
 });
