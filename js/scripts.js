@@ -1,42 +1,31 @@
 // Return the next square if sq if a perfect square, -1 otherwise
-function findNextSquare(sq) {
-  // check if sq is a perfect square
-  if (!(Number.isInteger(Math.sqrt(sq)))) {
-      return -1;
-  }
-  // while condition variable
-  let foundNextPerfectSquare = false;
-  // number to test if perfect square
-  let currentNumber = sq + 1;
-  // check if currentNumber is a perfect square
-  while(!foundNextPerfectSquare) {
-    if (Number.isInteger(Math.sqrt(currentNumber))) {
-      foundNextPerfectSquare = true;
-      return currentNumber;
-    } else {
-      currentNumber++;
-    }
+function findNextSquare(square) {
+  // check if square is a perfect square
+  if ((Math.sqrt(square) % 1 === 0)) {
+    // console.log(square + ' is a perfect square');
+    return Math.pow((Math.sqrt(square) + 1), 2);
+  } else {
+    // console.log(square + ' is not a perfect square');
+    return -1;
   }
 }
 
 // change textContent of span to solution
 function addSolution (input) {
-  const span = document.querySelector('.solution__span');
   // console.log(span);
   span.textContent = input;
 }
 
-// form selector
+// selectors
 const form = document.querySelector('form');
+const span = document.querySelector('.solution__span');
+const input = document.querySelector('#perfect-square');
 
 // form event listener
 form.addEventListener('submit', function(event) {
   // prevent default form submission action
   event.preventDefault();
-  // input selector
-  const input = document.querySelector('#perfect-square');
   // console.log(input);
-  // input value
   const inputValue = Number(input.value);
   // console.log(typeof inputValue);
   // console.log(inputValue);
